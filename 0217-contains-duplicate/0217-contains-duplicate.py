@@ -3,9 +3,9 @@ class Solution:
         n = len(nums)
         s = set()
         for i in range(n):
-            if nums[i] in s:
+            a = nums.pop()
+            if a in s:
                 return True
-            else:
-                s.add(nums[i])
+            s.add(a)
         return False
         # return len(set(nums)) < len(nums)

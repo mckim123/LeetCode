@@ -22,8 +22,8 @@ def findMaxWithoutZero(nums):
             if prod > max_prod:
                 max_prod = prod
         prod = 1
-        for num in nums[::-1]:
-            prod *= num
+        while(nums):
+            prod *= nums.pop()
             if prod > max_prod:
                 max_prod = prod
         return max_prod

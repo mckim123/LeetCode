@@ -8,6 +8,6 @@ class Solution:
             answer.append(prod)
         prod = 1
         for i in range(n-1):
-            prod *= nums[n-1-i]
+            prod *= nums.pop()
             answer[n-2-i] *= prod
         return answer

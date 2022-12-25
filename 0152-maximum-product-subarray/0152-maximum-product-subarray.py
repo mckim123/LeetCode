@@ -8,11 +8,12 @@ class Solution:
         return answer
     
     def findMaxWithoutZero(self, nums):
-        if len(nums) == 0:
+        n = len(nums)
+        if n == 0:
             return -10
-        elif len(nums) == 1:
+        elif n == 1:
             return nums[0]
-        elif len(nums) == 2:
+        elif n == 2:
             return max(nums[0], nums[1], nums[0]*nums[1])
         else:
             max_prod = 1
@@ -22,7 +23,7 @@ class Solution:
                 if prod > max_prod:
                     max_prod = prod
             prod = 1
-            while(nums):
+            for _ in range(n):
                 prod *= nums.pop()
                 if prod > max_prod:
                     max_prod = prod

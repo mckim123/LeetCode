@@ -10,7 +10,6 @@ class Solution:
             curr_max = prefix-m            
             if curr_max > answer:
                 answer = curr_max
-            if prefix < m:
+            if curr_max < 0:
                 m = prefix
-            print(prefix, m, curr_max, answer)
         return answer

@@ -7,7 +7,7 @@ class Solution:
             temp = nums[pos] + pos
             if temp > reachableIndex:
                 reachableIndex = temp
-                if temp >= n:
+                if temp-n >= 0:
                     return True
             pos += 1
-        return reachableIndex+1 >= n
+        return reachableIndex+1-n >= 0

@@ -6,7 +6,7 @@ class Solution:
             capacity[i] -= rocks[i]
         capacity.sort(reverse = True)
         answer = 0
-        while(capacity):
+        for _ in range(len(capacity)):
             additionalRocks -= capacity.pop()
             if 0 > additionalRocks:
                 return answer

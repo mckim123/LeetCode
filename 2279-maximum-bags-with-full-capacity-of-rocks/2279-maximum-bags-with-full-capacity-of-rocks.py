@@ -8,7 +8,7 @@ class Solution:
         answer = 0
         while(capacity):
             additionalRocks -= heapq.heappop(capacity)
-            if additionalRocks < 0:
+            if 0 > additionalRocks:
                 return answer
             answer += 1
         return answer

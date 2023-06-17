@@ -1,6 +1,9 @@
 import bisect
 
 class Solution:
+    def __init__(self):
+        self.bisect_dict = {}
+    
     def makeArrayIncreasing(self, arr1: List[int], arr2: List[int]) -> int:
         INF = 10**9+1
         arr2 = list(set(arr2))
@@ -34,9 +37,13 @@ class Solution:
         return count
                 
     def find_gt(self, a, x):
+        if x in self.bisect_dict:
+            return self.bisect_dict[x]
         i = bisect_right(a, x)
         if i != len(a):
+            self.bisect_dict[x] = a[i]
             return a[i]
+        self.bisect_dict[x] = -1
         return -1
     
     

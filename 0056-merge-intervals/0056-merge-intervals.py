@@ -5,16 +5,13 @@ class Solution:
         curr = None
         
         for x, y in intervals:
-            if curr == None:
-                curr = [x,y]
-            else:
+            if curr != None:
                 if curr[1] >= x:
                     curr[1] = max(curr[1], y)
+                    continue
                 else:
                     answer.append(curr)
-                    curr = [x,y]
-        
-        if curr != None:
-            answer.append(curr)
+            curr = [x,y]
+        answer.append(curr)
         
         return answer

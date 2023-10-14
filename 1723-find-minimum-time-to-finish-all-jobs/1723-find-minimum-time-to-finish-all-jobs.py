@@ -9,6 +9,7 @@ class Solution:
             return max(jobs)
         
         # n이 2k보다 작은 경우 상위 2k-n개의 job은 단독으로 선택하는 것이 최적임을 증명 가능(다른 것을 단독으로 사용하는 것보다 효율적)
+        # -> 이 과정을 통해 k를 반드시 6 이하로 줄일 수 있음
         elif n < 2 * k:
             curr_max = jobs[-1]
             jobs = jobs[:2*(n-k)]

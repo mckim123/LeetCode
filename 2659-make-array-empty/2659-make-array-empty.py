@@ -1,6 +1,5 @@
 class Solution:
     def countOperationsToEmptyArray(self, nums: List[int]) -> int:
-        n = len(nums)
         pos = {v:i for i, v in enumerate(nums)}
         ans = 0
         reps, idx = 0, 0
@@ -11,5 +10,5 @@ class Solution:
             idx = pos[num]
             ans += reps    
         
-        return ans + n
+        return ans + len(nums)
     

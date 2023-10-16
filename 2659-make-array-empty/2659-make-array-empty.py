@@ -3,8 +3,9 @@ class Solution:
         pos = {v:i for i, v in enumerate(nums)}
         ans = 0
         reps, idx = 0, 0
+        nums.sort()
         
-        for num in sorted(nums):
+        for num in nums:
             if pos[num] < idx:
                 reps += 1
             idx = pos[num]

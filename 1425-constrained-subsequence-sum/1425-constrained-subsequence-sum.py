@@ -12,7 +12,7 @@ class Solution:
                     last = queue[0][0]
                 res = max(res, num + last)
                 queue.clear()
-                queue.append([num + last, i])
+                queue.append((num + last, i))
 
             else:
                 res = max(res, num)
@@ -30,6 +30,6 @@ class Solution:
                     curr_val = queue[0][0] + num
                     while queue and queue[-1][0] <= curr_val:
                         queue.pop()
-                    queue.append([curr_val, i])
+                    queue.append((curr_val, i))
                 
         return res

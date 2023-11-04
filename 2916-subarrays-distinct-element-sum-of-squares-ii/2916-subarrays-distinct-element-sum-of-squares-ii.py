@@ -57,8 +57,8 @@ class Solution:
     def sumCounts(self, nums):
         MOD = 1_000_000_007
         segment_tree = LazySegmentTree(len(nums))
-        last_seens = defaultdict(int)                               # last_seens[num] : last seen index + 1
-        curr_sq_sum, ans = 0, 0                                     # curr_sq_sum : sum of squares of distinct counts of all subarrays ending with curr_index
+        last_seens = defaultdict(int)                   # last_seens[num] : last seen index + 1
+        curr_sq_sum, ans = 0, 0                         # curr_sq_sum : sum of squares of distinct counts of all subarrays ending with curr_index
 
         for i, num in enumerate(nums):
             last_seen = last_seens[num]

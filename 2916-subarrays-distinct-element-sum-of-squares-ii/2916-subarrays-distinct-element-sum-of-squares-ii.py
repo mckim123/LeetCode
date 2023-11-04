@@ -57,6 +57,7 @@ class Solution:
     def sumCounts(self, nums):
         MOD = 1_000_000_007
         segment_tree = LazySegmentTree(len(nums))
+        segment_tree.update_range(0, len(nums)-1, 1)
         last_seens = defaultdict(int)                           # last_seens[num] : last seen index + 1
         curr_sq, ans = 0, 0                                     # curr_sq : sum of squares of distinct counts of all subarrays ending with curr_index
 
@@ -65,9 +66,9 @@ class Solution:
             
             # update curr_sq
             # all counts in index from last_seen to i is increased by 1, so their sum of squares are increased by (2 * value + 1) for each
-            curr_sq = (curr_sq + 2 * segment_tree.query_range(last_seen, i) + i - last_seen + 1) % MOD
+            curr_sq = (curr_sq + segment_tree.query_range(last_seen, i)) % MOD
             ans = (ans + curr_sq) % MOD
-            segment_tree.update_range(last_seen, i, 1)
+            segment_tree.update_range(last_seen, i, 2)
             last_seens[num] = i + 1
 
         return ans

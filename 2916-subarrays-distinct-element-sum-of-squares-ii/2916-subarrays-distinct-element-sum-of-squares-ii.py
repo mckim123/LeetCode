@@ -67,8 +67,6 @@ class Solution:
             # all counts in index from last_seen to i is increased by 1, so their sum of squares are increased by (2 * value + 1) for each
             curr_sq = (curr_sq + 2 * segment_tree.query_range(last_seen, i) + i - last_seen + 1) % MOD
             ans = (ans + curr_sq) % MOD
-            
-            # update values
             segment_tree.update_range(last_seen, i, 1)
             last_seens[num] = i + 1
 

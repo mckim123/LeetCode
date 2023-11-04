@@ -1,3 +1,8 @@
 class Solution:
     def getLastMoment(self, n: int, left: List[int], right: List[int]) -> int:
-        return max(max(left + [0]), n - min(right + [n]))
+        ans = 0
+        for num in left:
+            ans = max(ans, num)
+        for num in right:
+            ans = max(ans, n-num)
+        return ans

@@ -9,5 +9,5 @@ class Solution:
                 prev_winner = curr
                 streak = 1
             if streak == k:
-                return prev_winner
+                break
         return prev_winner

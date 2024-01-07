@@ -14,7 +14,6 @@ class Solution:
                 if k1 not in cands:
                     cands[k1] = defaultdict(int)
                 cands[k1][num - num1] += v
-                ans += v
             
             if num not in cands:
                 continue
@@ -28,8 +27,6 @@ class Solution:
         for i, v in one_nums.items():
             if v == 1:
                 continue
-            ans += 2 ** v - 1 - v
+            ans += 2 ** v - 1 - v - v * (v-1) // 2
         
-        ans -= (n * (n-1)) // 2
-
         return ans

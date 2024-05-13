@@ -7,9 +7,8 @@ class Solution:
             for i, num in enumerate(row):
                 if k == num:
                     counter[i] += 1
-        ans = (1 << (n-1)) * m
-        
-        for i in range(1, n):
+        ans = 0
+        for i in range(n):
             c = counter[i]
             ans += (1 << (n-1-i)) * max(c, m-c)
         

@@ -8,9 +8,7 @@ class Solution:
                 if k == num:
                     counter[i] += 1
         ans = 0
-        curr = 1
-        for c in reversed(counter):
-            ans += max(c, m-c) * curr
-            curr <<= 1
+        for i, c in enumerate(counter):
+            ans += max(c, m-c) << (n-1-i)
         
         return ans

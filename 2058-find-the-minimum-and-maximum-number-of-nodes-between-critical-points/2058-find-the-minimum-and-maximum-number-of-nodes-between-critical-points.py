@@ -16,7 +16,6 @@ class Solution:
             curr = curr.next
             i += 1
             if (pv < curr.val and curr.val > curr.next.val) or (pv > curr.val and curr.val < curr.next.val):
-                print(i)
                 if start == -1:
                     start = i
                 else:

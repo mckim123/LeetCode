@@ -5,32 +5,27 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def delNodes(self, root: Optional[TreeNode], to_delete: List[int]) -> List[TreeNode]:
+    def delNodes(self, root: Optional[TreeNode], td: List[int]) -> List[TreeNode]:
         ans = []
-        q = deque()
-        q.append(root)
-        to_delete = set(to_delete)
-        
-        def process(node: Optional[TreeNode], is_root:bool) -> bool:
-            if not node:
-                return False
-            if node.val in to_delete:
-                q.append(node.left)
-                q.append(node.right)
-                return True
-            else:
-                if is_root:
-                    ans.append(node)
-                b = process(node.left, False)
-                if b:
-                    node.left = None
-                b = process(node.right, False)
-                if b:
-                    node.right = None
-                return False
-        
-        while q:
-            process(q.popleft(), True)
-        
+        td = set(td)
+        def f(node, b, p, l):
+            if node.val in td:
+                if p:
+                    if l:
+                        p.left = None
+                    else:
+                        p.right = None
+                if node.left:
+                    f(node.left, True, None, True)
+                if node.right:
+                    f(node.right, True, None, False)
+                return
+            if b:
+                ans.append(node)
+            if node.left:
+                f(node.left, False, node, True)
+            if node.right:
+                f(node.right, False, node, False)
+        f(root, True, None, True)
         return ans
-        
+                

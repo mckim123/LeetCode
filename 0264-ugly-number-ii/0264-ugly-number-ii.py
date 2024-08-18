@@ -3,6 +3,7 @@ class Solution:
         s = set()
         s.add(1)
         h = [1]
+        cur, cur1, cur2, cur3 = 0, 0, 0, 0
         for _ in range(n-1):
             cur = heappop(h)
             cur1 = cur * 2

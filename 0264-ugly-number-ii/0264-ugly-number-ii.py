@@ -3,8 +3,7 @@ class Solution:
         s = set()
         s.add(1)
         h = [1]
-        j = n-1
-        while j:
+        for _ in range(n-1):
             cur = heappop(h)
             if cur * 2 not in s:
                 heappush(h, cur * 2)
@@ -16,5 +15,4 @@ class Solution:
                 heappush(h, cur * 5)
                 s.add(cur * 5)
             s.remove(cur)
-            j -= 1
         return heappop(h)

@@ -15,5 +15,6 @@ class Solution:
             if cur * 5 not in s:
                 heappush(h, cur * 5)
                 s.add(cur * 5)
+            s.remove(cur)
             j -= 1
         return heappop(h)

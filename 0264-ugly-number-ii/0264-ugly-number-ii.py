@@ -5,14 +5,17 @@ class Solution:
         h = [1]
         for _ in range(n-1):
             cur = heappop(h)
-            if cur * 2 not in s:
-                heappush(h, cur * 2)
-                s.add(cur * 2)
-            if cur * 3 not in s:
-                heappush(h, cur * 3)
-                s.add(cur * 3)
-            if cur * 5 not in s:
-                heappush(h, cur * 5)
-                s.add(cur * 5)
+            cur1 = cur * 2
+            if cur1 not in s:
+                heappush(h, cur1)
+                s.add(cur1)
+            cur2 = cur * 3
+            if cur2 not in s:
+                heappush(h, cur2)
+                s.add(cur2)
+            cur3 = cur * 5
+            if cur3 not in s:
+                heappush(h, cur3)
+                s.add(cur3)
             s.remove(cur)
         return heappop(h)
